@@ -1,0 +1,6 @@
+[alias]
+	st = status
+	amend = commit --amend
+[user]
+	name = David Aaron Suddjian
+	email = aaron@alpaca.markets
