@@ -100,5 +100,6 @@ eval $(thefuck --alias)
 
 export GOPATH="/home/$USER/workspace"
 export PATH=$PATH:$GOPATH/bin
+export PROMPT=$PROMPT$'\n☆ﾟ.*･｡ﾟ '
 
 alias sync-workspace='source ~/workspace/py3env/bin/activate && python3 ~/workspace/sync/sync.py hq-dev-01 ~/workspace/sync/config.json'
