@@ -3,10 +3,11 @@
 	st = status
 	amend = commit --amend
 	unstage = reset HEAD
+	uncommit = reset --hard HEAD~
 	feat = "!git checkout -b feature/$1 #"
 	fix = "!git checkout -b fix/$1 #"
 	puush = "!git push -u origin $(git branch-name)"
-	send = "!git add -A && git commit -m \"$1\" && git push #"
+	send = "!git add -A && git commit -m \"$*\" && git push #"
 [user]
 	name = David Aaron Suddjian
 	email = aasuddjian@gmail.com
