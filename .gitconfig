@@ -1,6 +1,17 @@
 [alias]
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	st = status
 	amend = commit --amend
+	unstage = reset HEAD
+	feat = "!git checkout -b feature/$1 #"
+	fix = "!git checkout -b fix/$1 #"
+	puush = "!git push -u origin $(git branch-name)"
+	send = "!git add -A && git commit -m \"$1\" && git push #"
 [user]
 	name = David Aaron Suddjian
-	email = aaron@alpaca.markets
+	email = aasuddjian@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
