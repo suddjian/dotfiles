@@ -1,11 +1,24 @@
 {
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}",
     "workbench.startupEditor": "newUntitledFile",
     "files.autoSave": "onFocusChange",
     "workbench.editor.enablePreview": false,
     "editor.minimap.enabled": false,
-    "terminal.integrated.fontFamily": "Hack",
+    "terminal.integrated.fontFamily": "Droid Sans Mono Slashed for Powerline",
     "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.dragAndDrop": false,
     "files.trimTrailingWhitespace": true,
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "terminal.external.osxExec": "Terminal.app",
+    "terminal.integrated.shell.osx": "zsh",
+    "files.insertFinalNewline": true,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "eslint.autoFixOnSave": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "window.zoomLevel": 0,
+    "editor.fontSize": 14,
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2,
 }
