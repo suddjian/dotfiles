@@ -3,10 +3,10 @@
 	st = status
 	amend = commit --amend
 	unstage = reset HEAD
-	uncommit = reset --hard HEAD~
+	uncommit = reset HEAD~
+	clear = checkout -- .
 	feat = "!git checkout -b feature/$1 #"
 	fix = "!git checkout -b fix/$1 #"
-	puush = "!git push -u origin $(git branch-name)"
 	send = "!git add -A && git commit -m \"$*\" && git push #"
 	tree = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 [user]
@@ -19,3 +19,7 @@
 	required = true
 [push]
 	default = current
+[credential]
+	helper = osxkeychain
+[url "git@github.com:"]
+	insteadOf = https://github.com/
