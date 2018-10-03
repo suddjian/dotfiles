@@ -13,7 +13,6 @@
 [user]
 	name = David Aaron Suddjian
 	email = aasuddjian@gmail.com
-	signingkey = 014BBDC5A9AB1D95
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
