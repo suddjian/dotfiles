@@ -43,6 +43,14 @@ export GOPATH="$HOME/workspace"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/Library/Python/2.7/bin
 
+alias simonsays=sudo
+
+alias sync-workspace='source ~/workspace/py3env/bin/activate && python3 ~/workspace/sync/sync.py hq-dev-01 ~/workspace/sync/config.json'
+
+alias prodgb-fwd='ssh -L 5433:localhost:5432 prod.production-postgres-master'
+
+alias prodgb-dump='pg_dump -p 5433 -h localhost -U alpaca gobroker'
+
 # random emoji prompt
 # EMOJIS=(🍣 🍺 👾 🍶 👀 👄 🍎 🍩 🍾 🍸 🍹 💃 🤘 👉 🥐 🌮)
 # export PROMPT=$PROMPT$'
@@ -50,7 +58,6 @@ export PATH=$PATH:$HOME/Library/Python/2.7/bin
 # function precmd() {
 #   SEL_EMOJI=${EMOJIS[RANDOM % ${#EMOJIS[@]} - 1 ]}
 # }
-
 
 # sparkle prompt
 # export PROMPT=$PROMPT$'
