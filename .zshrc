@@ -41,15 +41,8 @@ eval $(thefuck --alias)
 
 export GOPATH="$HOME/workspace"
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/Library/Python/2.7/bin
 
 alias simonsays=sudo
-
-alias sync-workspace='source ~/workspace/py3env/bin/activate && python3 ~/workspace/sync/sync.py hq-dev-01 ~/workspace/sync/config.json'
-
-alias prodgb-fwd='ssh -L 5433:localhost:5432 prod.production-postgres-master'
-
-alias prodgb-dump='pg_dump -p 5433 -h localhost -U alpaca gobroker'
 
 # random emoji prompt
 # EMOJIS=(🍣 🍺 👾 🍶 👀 👄 🍎 🍩 🍾 🍸 🍹 💃 🤘 👉 🥐 🌮)
@@ -66,3 +59,21 @@ alias prodgb-dump='pg_dump -p 5433 -h localhost -U alpaca gobroker'
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aaron/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aaron/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aaron/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aaron/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval "$(direnv hook zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
