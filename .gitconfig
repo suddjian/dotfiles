@@ -13,7 +13,7 @@
 	vtag = tag -l --sort=v:refname
 	upstream = "!git branch -u origin/$(git branch-name)"
 	ticket = "!name=$1-$2; git checkout -b $name && git symbolic-ref refs/heads/$2 refs/heads/$name #"
-	rmticket = "!name=$1-$2; git branch -D $name && git branch -D $2 #"
+	rmticket = "!name=$(git symbolic-ref --short refs/heads/$1); git branch -D $name && git branch -D $1 #"
 [user]
 	name = David Aaron Suddjian
 	email = aasuddjian@gmail.com
