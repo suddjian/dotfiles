@@ -2,6 +2,7 @@
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	st = status
 	amend = commit --amend
+	shove = push --force
 	unstage = reset HEAD
 	uncommit = reset HEAD~
 	clear = checkout -- .
@@ -11,9 +12,12 @@
 	tree = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	co = "!git fetch && git checkout "
 	vtag = tag -l --sort=v:refname
-	upstream = "!git branch -u origin/$(git branch-name)"
+	upstream = "!remote=${1:-origin}; git branch -u $remote/$(git branch-name) #"
+	link = upstream
 	ticket = "!name=$1-$2; git checkout -b $name && git symbolic-ref refs/heads/$2 refs/heads/$name #"
 	rmticket = "!name=$(git symbolic-ref --short refs/heads/$1); git branch -D $name && git branch -D $1 #"
+	oukk = pull
+	lbr = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
 [user]
 	name = David Aaron Suddjian
 	email = aasuddjian@gmail.com
