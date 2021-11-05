@@ -9,6 +9,8 @@ echo "this script will set up the essentials."
 echo "just follow the instructions and navigate through any installer screens that pop up."
 echo "hopefully everything works.\n"
 
+rm -rf $TEMP_DIR
+
 echo "installing homebrew..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -29,6 +31,9 @@ curl $ITERM_URL -o $TEMP_DIR/iterm.zip
 unzip $TEMP_DIR/iterm.zip $TEMP_DIR/iterm
 open $TEMP_DIR/iterm
 
+echo "installing oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 echo "installing fira code..."
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
@@ -36,5 +41,12 @@ brew cask install font-fira-code
 echo "installing vs code..."
 curl -I $VSCODE_URL | grep -Fi Location
 
-echo "installing direnv"
+echo "installing command line tools"
 brew install direnv
+brew install thefuck
+
+echo "installing python stuff"
+brew install pyenv
+brew install pyenv-virtualenv
+
+rm -rf $TEMP_DIR
