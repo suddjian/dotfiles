@@ -35,3 +35,6 @@ brew cask install font-fira-code
 
 echo "installing vs code..."
 curl -I $VSCODE_URL | grep -Fi Location
+
+echo "installing dotenv"
+brew install dotenv
