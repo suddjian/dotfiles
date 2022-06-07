@@ -51,4 +51,7 @@ echo "installing python stuff"
 brew install pyenv
 brew install pyenv-virtualenv
 
+echo "installing nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
 rm -rf $TEMP_DIR
