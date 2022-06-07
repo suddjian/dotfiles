@@ -12,7 +12,9 @@ echo "hopefully everything works.\n"
 rm -rf $TEMP_DIR
 
 echo "installing homebrew..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "installing command line developer tools (xcode, gcc, git, etc)..."
 xcode-select --install
@@ -36,7 +38,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 echo "installing fira code..."
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install --cask font-fira-code
 
 echo "installing vs code..."
 curl -I $VSCODE_URL | grep -Fi Location
