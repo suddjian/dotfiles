@@ -17,7 +17,8 @@
 	ticket = "!name=$1-$2; git checkout -b $name && git symbolic-ref refs/heads/$2 refs/heads/$name #"
 	rmticket = "!name=$(git symbolic-ref --short refs/heads/$1); git branch -D $name && git branch -D $1 #"
 	oukk = pull
-	lbr = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+	lbr = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+	checkmerge = "!check_commit_merged"
 [user]
 	name = David Aaron Suddjian
 	email = aasuddjian@gmail.com
