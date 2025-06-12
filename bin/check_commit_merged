@@ -2,8 +2,6 @@
 
 set commit $argv[1]
 set target_branch $argv[2]
-echo "commit: $commit"
-echo "target_branch: $target_branch"
 
 # Check if directly merged
 if git merge-base --is-ancestor $commit $target_branch 2>/dev/null
