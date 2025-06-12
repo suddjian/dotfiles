@@ -1,0 +1,23 @@
+#!/usr/bin/env fish
+
+set commit $argv[1]
+set target_branch $argv[2]
+echo "commit: $commit"
+echo "target_branch: $target_branch"
+
+# Check if directly merged
+if git merge-base --is-ancestor $commit $target_branch 2>/dev/null
+    echo "Commit $commit is merged into $target_branch"
+    return 0
+end
+
+# Check for cherry-pick by message
+set message (git log -1 --pretty=format:'%s' $commit 2>/dev/null)
+if test -n "$message"
+    and git log --oneline --grep="$message" $target_branch | grep -v $commit >/dev/null
+    echo "Commit $commit appears to be cherry-picked into $target_branch (matching message)"
+    return 0
+end
+
+echo "Commit $commit not found in $target_branch"
+return 1
